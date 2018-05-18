@@ -33,7 +33,7 @@ describe('RecordCollector', function () {
       genre: 'hardcore',
       price: 20
     })
-    records = [record1, record2, record3, record4];
+
 
   });
 
@@ -81,9 +81,18 @@ describe('RecordCollector', function () {
     assert.deepStrictEqual(actual, [record4]); //ASSERT
   });
 
-  
+  it('should be able to buy a record', function () {
+    record_collector.addFunds(100); //ACT
+    record_collector.buyRecord(record2); //ACT
+    const actual = record_collector.funds; //ASSERT
+    assert.deepStrictEqual(actual, 90); //ASSERT
+  });
 
-
+  it('should be able to sell a record', function () {
+    record_collector.sellRecord(record2);
+    const actual = record_collector.funds;
+    assert.deepStrictEqual(actual, 10);
+  });
 
 
 

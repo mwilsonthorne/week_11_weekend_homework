@@ -23,9 +23,16 @@ RecordCollector.prototype.findRecordByTitle = function (title) {
   const recordByTitle = this.records.filter((record) => {
     return title === record.title;
 });
-console.log(recordByTitle);
+// console.log(recordByTitle);
   return recordByTitle;
+};
 
-}
+RecordCollector.prototype.buyRecord = function (record) {
+  this.funds -= record.price;
+};
+
+RecordCollector.prototype.sellRecord = function (record) {
+  this.funds += record.price;
+};
 
 module.exports = RecordCollector;
