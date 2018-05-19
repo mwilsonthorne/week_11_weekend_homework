@@ -3,19 +3,19 @@ const RecordCollector = function (){
   this.funds = 0;
 };
 
-RecordCollector.prototype.addRecord = function (record){
+RecordCollector.prototype.collectorAddRecord = function (record){
   this.records.push(record);
 };
 
-RecordCollector.prototype.removeRecord = function (record){
+RecordCollector.prototype.collectorRemoveRecord = function (record){
   this.records.pop(record);
 };
 
-RecordCollector.prototype.addFunds = function (amount) {
+RecordCollector.prototype.collectorAddFunds = function (amount) {
   this.funds += amount;
 };
 
-RecordCollector.prototype.removeFunds = function (amount) {
+RecordCollector.prototype.collectorRemoveFunds = function (amount) {
   this.funds -= amount;
 };
 
@@ -27,14 +27,14 @@ RecordCollector.prototype.findRecordByTitle = function (title) {
   return recordByTitle;
 };
 
-RecordCollector.prototype.buyRecord = function (record) {
-  //if(statem)
-  this.addRecord(record);
+RecordCollector.prototype.collectorBuyRecord = function (record) {
+  if(record.price < this.funds);
+  this.collectorAddRecord(record);
   this.funds -= record.price;
 };
 
-RecordCollector.prototype.sellRecord = function (record) {
-  this.removeRecord(record);
+RecordCollector.prototype.collectorSellRecord = function (record) {
+  this.collectorRemoveRecord(record);
   this.funds += record.price;
 };
 

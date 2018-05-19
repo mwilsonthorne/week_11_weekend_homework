@@ -46,49 +46,49 @@ describe('RecordCollector', function () {
   });
 
   it('should be able to add a record to the collection', function () {
-    record_collector.addRecord(record1);
+    record_collector.collectorAddRecord(record1);
     const actual = record_collector.records.length;
     assert.strictEqual(actual, 1);
   });
 
   it('should be able to remove a record from the collection', function () {
-    record_collector.addRecord(record1);
-    record_collector.addRecord(record2);
-    record_collector.removeRecord(record1);
+    record_collector.collectorAddRecord(record1);
+    record_collector.collectorAddRecord(record2);
+    record_collector.collectorRemoveRecord(record1);
     const actual = record_collector.records.length;
     assert.strictEqual(actual, 1);
   });
 
   it('should be able to add funds', function () {
-    record_collector.addFunds(100);
-    record_collector.addFunds(100);
+    record_collector.collectorAddFunds(100);
+    record_collector.collectorAddFunds(100);
     const actual = record_collector.funds;
     assert.strictEqual(actual, 200);
   });
 
   it('should be able to remove funds', function () {
-    record_collector.addFunds(100);
-    record_collector.removeFunds(20);
+    record_collector.collectorAddFunds(100);
+    record_collector.collectorRemoveFunds(20);
     const actual = record_collector.funds;
     assert.strictEqual(actual, 80);
   });
 
   it('should be able to find a record by title', function () {
-    record_collector.addRecord(record2); //ARRANGE
-    record_collector.addRecord(record4);
+    record_collector.collectorAddRecord(record2); //ARRANGE
+    record_collector.collectorAddRecord(record4);
     const actual = record_collector.findRecordByTitle('The Beat Goes On'); //ACT
     assert.deepStrictEqual(actual, [record4]); //ASSERT
   });
 
   it('should be able to buy a record', function () {
-    record_collector.addFunds(100); //ACT
-    record_collector.buyRecord(record2); //ACT
+    record_collector.collectorAddFunds(100); //ACT
+    record_collector.collectorBuyRecord(record2); //ACT
     const actual = record_collector.funds; //ASSERT
     assert.deepStrictEqual(actual, 90); //ASSERT
   });
 
   it('should be able to sell a record', function () {
-    record_collector.sellRecord(record2);
+    record_collector.collectorSellRecord(record2);
     const actual = record_collector.funds;
     assert.deepStrictEqual(actual, 10);
   });

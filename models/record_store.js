@@ -5,12 +5,28 @@ const RecordStore = function(name) {
 
 };
 
-RecordStore.prototype.addFunds = function (amount) {
+RecordStore.prototype.storeAddFunds = function (amount) {
   this.funds += amount;
 };
 
-RecordStore.prototype.addRecord = function (record) {
+RecordStore.prototype.storeAddRecord = function (record) {
   this.stock.push(record);
 };
+
+RecordStore.prototype.storeRemoveRecord = function (record) {
+  this.stock.pop(record);
+};
+
+RecordStore.prototype.storeSellRecord = function (record) {
+  this.storeRemoveRecord(record);
+  this.funds += record.price;
+};
+
+RecordStore.prototype.storeBuyRecord = function (record) {
+  this.storeAddRecord(record);
+  this.funds -= record.price;
+};
+
+
 
 module.exports = RecordStore;
