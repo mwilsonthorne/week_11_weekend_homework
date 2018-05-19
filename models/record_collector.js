@@ -28,10 +28,13 @@ RecordCollector.prototype.findRecordByTitle = function (title) {
 };
 
 RecordCollector.prototype.buyRecord = function (record) {
+  //if(statem)
+  this.addRecord(record);
   this.funds -= record.price;
 };
 
 RecordCollector.prototype.sellRecord = function (record) {
+  this.removeRecord(record);
   this.funds += record.price;
 };
 

@@ -3,9 +3,8 @@ const Record = require('../record.js');
 const assert = require('assert');
 
 describe('RecordCollector', function () {
-  let record_collector;
-  let record1;
-  let record2;
+
+
 
   beforeEach(function () {
     record_collector = new RecordCollector();
@@ -26,13 +25,13 @@ describe('RecordCollector', function () {
       artist: 'Aphex Twin',
       genre: 'electro',
       price: 20
-    })
+    });
     record4 = new Record({
       title: 'The Beat Goes On',
       artist: 'Scooter',
       genre: 'hardcore',
       price: 20
-    })
+    });
 
 
   });

@@ -29,5 +29,5 @@ describe('Record', function () {
     assert.strictEqual(record.price, 1000);
   });
 
-  
+
 });
