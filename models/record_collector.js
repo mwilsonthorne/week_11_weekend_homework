@@ -28,9 +28,15 @@ RecordCollector.prototype.findRecordByTitle = function (title) {
 };
 
 RecordCollector.prototype.collectorBuyRecord = function (record) {
-  if(record.price < this.funds);
-  this.collectorAddRecord(record);
-  this.funds -= record.price;
+  if(this.funds > record.price) {
+    this.collectorAddRecord(record);
+    this.funds -= record.price;
+  }
+  else
+  {
+    return false;
+  }
+
 };
 
 RecordCollector.prototype.collectorSellRecord = function (record) {

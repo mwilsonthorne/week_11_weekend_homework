@@ -43,17 +43,19 @@ it('should have a seller', function () {
   const actual = transaction.seller;
   assert.strictEqual(actual, recordstore);
 });
-//
-// it('should be be able to exchange', function () {
-//   recordstore.storeAddRecord(record1);
-//   recordcollector.collectorAddFunds(100);
-//   transaction.exchangeRecord(record1);
-//   const actual = recordstore.funds;
-//   assert.strictEqual(actual, 15);
-//
-//
-//
-// });
+
+it('should be be able to exchange', function () {
+  recordstore.storeAddRecord(record1);
+  recordcollector.collectorAddFunds(100);
+  transaction.exchangeRecord(record1);
+  const actual = recordstore.funds;
+  assert.strictEqual(actual, 15);
+  const total = recordcollector.funds;
+  assert.strictEqual(total, 85);
+
+
+
+});
 
 
 
