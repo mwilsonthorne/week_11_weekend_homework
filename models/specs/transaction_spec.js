@@ -52,9 +52,15 @@ it('should be be able to exchange', function () {
   assert.strictEqual(actual, 15);
   const total = recordcollector.funds;
   assert.strictEqual(total, 85);
+});
 
-
-
+it('should not be able to exchange', function () {
+  recordcollector.collectorAddFunds(10);
+  transaction.exchangeRecord(record1);
+  const actual = recordstore.funds;
+  assert.strictEqual(actual, 0);
+  const total = recordcollector.funds;
+  assert.strictEqual(total, 10);
 });
 
 

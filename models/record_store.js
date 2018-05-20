@@ -18,8 +18,15 @@ RecordStore.prototype.storeRemoveRecord = function (record) {
 };
 
 RecordStore.prototype.storeSellRecord = function (record) {
+  if(this.stock.length > 0)
+  {
   this.storeRemoveRecord(record);
   this.funds += record.price;
+  }
+  else
+  {
+    return false;
+  }
 };
 
 RecordStore.prototype.storeBuyRecord = function (record) {
