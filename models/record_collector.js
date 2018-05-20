@@ -44,4 +44,16 @@ RecordCollector.prototype.collectorSellRecord = function (record) {
   this.funds += record.price;
 };
 
+
+RecordCollector.prototype.sortCollectionByArtistName = function () {
+  const artistName = this.records.map((record) => {
+    return record.artist;
+  });
+
+  return artistName;
+
+
+
+}
+
 module.exports = RecordCollector;
