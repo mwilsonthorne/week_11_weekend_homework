@@ -93,7 +93,7 @@ describe('RecordCollector', function () {
     assert.deepStrictEqual(actual, 10);
   });
 
-  it('should be able to sort by artist name', function () {
+  it('should be able to sort its collection by artist name', function () {
     record_collector.collectorAddRecord(record1);
     record_collector.collectorAddRecord(record2);
     const expected = ['The Smiths', 'The Stone Roses'];

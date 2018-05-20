@@ -34,6 +34,20 @@ RecordStore.prototype.storeBuyRecord = function (record) {
   this.funds -= record.price;
 };
 
+RecordStore.prototype.findRecordsByGenre = function (genre) {
+  const findGenre = this.stock.filter((stockitem) => {
+    return genre === stockitem.genre;
+
+  });
+
+  return findGenre;
+
+}
+
+
+
+
+
 
 
 module.exports = RecordStore;

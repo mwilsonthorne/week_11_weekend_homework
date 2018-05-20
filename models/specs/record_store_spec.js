@@ -81,10 +81,18 @@ it('should be able to buy a record from a collector', function() {
   recordstore.storeBuyRecord(record2);
   const actual = recordstore.funds;
   assert.strictEqual(actual, 75);
-
-
-
 });
+
+it('should be able to find all records which match a given genre', function() {
+  recordstore.storeAddRecord(record1);
+  recordstore.storeAddRecord(record2);
+  const expected = [record1, record2];
+  const actual = recordstore.findRecordsByGenre('indie');
+  assert.deepStrictEqual(actual, expected);
+});
+
+
+
 
 
 
