@@ -37,12 +37,37 @@ RecordStore.prototype.storeBuyRecord = function (record) {
 RecordStore.prototype.findRecordsByGenre = function (genre) {
   const findGenre = this.stock.filter((stockitem) => {
     return genre === stockitem.genre;
-
   });
 
   return findGenre;
 
-}
+};
+
+RecordStore.prototype.findRecordsByTitle = function(title) {
+  const findTitle = this.stock.filter((stockitem) => {
+    return title === stockitem.title;
+
+  });
+
+  return findTitle;
+
+};
+
+RecordStore.prototype.findRecordsByArtist = function (artist) {
+  const findArtist = this.stock.filter((stockitem) => {
+  return artist === stockitem.artist;
+  });
+
+  return findArtist;
+};
+
+// RecordStore.prototype.findRecordsWithMultipleAttributes = function (attribute1, attribute2) {
+//   const findMultiple = this.stock.filter((stockitem) => {
+//     return
+//   });
+//
+//
+// };
 
 
 

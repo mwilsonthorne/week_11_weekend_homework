@@ -25,6 +25,20 @@ describe('RecordStore', function () {
       genre: 'indie',
       price: 10
     });
+    record3 = new Record({
+      title: 'Ambient Works',
+      artist: 'Aphex Twin',
+      genre: 'electro',
+      price: 5
+    });
+    record4 = new Record({
+      title: 'Ambient Works Vol2',
+      artist: 'Aphex Twin',
+      genre: 'electro',
+      price: 5
+
+
+    });
 
 
   });
@@ -86,9 +100,28 @@ it('should be able to buy a record from a collector', function() {
 it('should be able to find all records which match a given genre', function() {
   recordstore.storeAddRecord(record1);
   recordstore.storeAddRecord(record2);
+  recordstore.storeAddRecord(record3);
   const expected = [record1, record2];
   const actual = recordstore.findRecordsByGenre('indie');
   assert.deepStrictEqual(actual, expected);
+});
+
+it('should be able to find all records which match a given title', function () {
+  recordstore.storeAddRecord(record1);
+  recordstore.storeAddRecord(record2);
+  recordstore.storeAddRecord(record3);
+  const actual = recordstore.findRecordsByTitle('The Stone Roses');
+  assert.deepStrictEqual(actual, [record2]);
+
+});
+
+it('should be able to find all records which match a given artist', function () {
+  recordstore.storeAddRecord(record1);
+  recordstore.storeAddRecord(record2);
+  recordstore.storeAddRecord(record3);
+  recordstore.storeAddRecord(record4);
+  const actual = recordstore.findRecordsByArtist('Aphex Twin');
+  assert.deepStrictEqual(actual, [record3, record4]);
 });
 
 
