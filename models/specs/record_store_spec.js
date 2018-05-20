@@ -106,7 +106,7 @@ it('should be able to find all records which match a given genre', function() {
   assert.deepStrictEqual(actual, expected);
 });
 
-it('should be able to find all records which match a given title', function () {
+it('should be able to find all records which match a given title', function(){
   recordstore.storeAddRecord(record1);
   recordstore.storeAddRecord(record2);
   recordstore.storeAddRecord(record3);
